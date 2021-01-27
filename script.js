@@ -2,7 +2,7 @@ const main = document.getElementById("main");
 const addUserBtn = document.getElementById("add-user");
 const doubleBtn = document.getElementById("double");
 const showMillionariesBtn = document.getElementById("show-millionaires");
-const sort = document.getElementById("sort");
+const sortBtn = document.getElementById("sort");
 const calculateWealthBtn = document.getElementById("calculate-wealth");
 
 let data = [];
@@ -35,11 +35,17 @@ function addData(obj) {
   updateDOM();
 }
 
-//Doouble Money
+//Double Money
 function doubleMoney() {
   data = data.map((item) => {
     return { ...item, money: item.money * 2 };
   });
+  updateDOM();
+}
+
+//Sort By Richest (a-b will give ascending order[Default], b-a will give descnding)
+function sortByRichest() {
+  data.sort((a, b) => b.money - a.money);
   updateDOM();
 }
 
@@ -64,3 +70,4 @@ function formatMoney(number) {
 // Event Listeners
 addUserBtn.addEventListener("click", getRandomUser);
 doubleBtn.addEventListener("click", doubleMoney);
+sortBtn.addEventListener("click", sortByRichest);
