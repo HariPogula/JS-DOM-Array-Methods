@@ -1,0 +1,7 @@
+{
+  "data1": [
+    { "fname": "aaa", "lname": "bbb" },
+    { "fname": "aaa2", "lname": "bbb2" },
+    { "fname": "aaa3", "lname": "bbb3" }
+  ]
+}
