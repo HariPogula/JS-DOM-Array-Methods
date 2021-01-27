@@ -35,6 +35,14 @@ function addData(obj) {
   updateDOM();
 }
 
+//Doouble Money
+function doubleMoney() {
+  data = data.map((item) => {
+    return { ...item, money: item.money * 2 };
+  });
+  updateDOM();
+}
+
 //Update DOM
 function updateDOM(providedData = data) {
   // clear main Div
@@ -55,54 +63,4 @@ function formatMoney(number) {
 
 // Event Listeners
 addUserBtn.addEventListener("click", getRandomUser);
-
-// var mydata = JSON.parse(data1);
-// console.log("My Data is " + mydata);
-
-// getRandomUser();
-// // Fetch random user and add money
-// async function getRandomUser() {
-//   const res = await fetch("https://randomuser.me/api?results=3");
-//   const data = await res.json();
-
-//   const user = data.results;
-
-//   user.forEach((element) => {
-//     console.log("Every user is " + element.name.first);
-//     const nUser = {
-//       name: `${element.name.first} ${element.name.last}`,
-//       money: Math.floor(Math.random() * 1000000),
-//     };
-//     addData(nUser);
-//   });
-//   // // console.log("User is " + JSON.stringify(user) + " and " + user[0].name.first);
-//   // let newU = user[0];
-//   // const newUser = {
-//   //   name: `${newU.name.first} ${newU.name.last}`,
-//   //   money: Math.floor(Math.random() * 1000000),
-//   // };
-//   // console.log("New User is " + JSON.stringify(newUser));
-//   // addData(newUser);
-// }
-
-// // Add new obj to data arr
-// function addData(obj) {
-//   console.log("Obj is " + JSON.stringify(obj));
-//   data.push(obj);
-
-//   updateDOM(JSON.stringify(obj));
-// }
-
-// // Update DOM
-// function updateDOM(providedData) {
-//   console.log("Provided DAta" + providedData);
-//   // Clear main div
-//   main.innerHTML = "<h2><strong>Person</strong> Wealth</h2>";
-
-//   providedData.forEach((item) => {
-//     const element = document.createElement("div");
-//     element.classList.add("person");
-//     element.innerHTML = `<strong>${item.name}</strong> ${formatMoney(item.money)}`;
-//     main.appendChild(element);
-//   });
-// }
+doubleBtn.addEventListener("click", doubleMoney);
